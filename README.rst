@@ -1,8 +1,8 @@
-=====
-drapery
-=====
+=======
+Drapery
+=======
 
-drapery is a Python script to update spatial data, such as a shapefile, with Z values from a raster.
+Drapery is a Python library and CLI tool to convert 2D geometries to 3D given an elevation source.
 
 Dependencies
 ============
@@ -11,6 +11,7 @@ drapery 0.0.0 depends on:
 
 * `Python 2.7 or 3.x`_
 * Click_
+* Shapely_
 * rasterio_
 * fiona_
 
@@ -42,6 +43,7 @@ Latest `html`_
 
 .. _`Python 2.7 or 3.x`: http://www.python.org
 .. _Click: http://click.pocoo.org
+.. _Shapely: https://github.com/Toblerity/Shapely
 .. _rasterio: https://github.com/mapbox/rasterio
 .. _fiona: https://github.com/Toblerity/Fiona
 
