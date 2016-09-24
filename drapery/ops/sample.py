@@ -29,7 +29,7 @@ def drape(raster, feature):
         points = [Point(x,y,z) for x,y,z in xyz]
         result = LineString(points)
     else:
-        logging.error('drape not implemented for {}'.format(geom))
+        logging.error('drape not implemented for {}'.format(geom_type))
 
     return result
 
