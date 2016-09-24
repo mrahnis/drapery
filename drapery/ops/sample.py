@@ -1,8 +1,7 @@
 # using dask for out of core processing on large rasters
 # https://gist.github.com/lpinner/bd57b54a5c6903e4a6a2
 import logging
-import rasterio
-from shapely.geometry import shape, Point, LineString
+from shapely.geometry import Point, LineString
 
 def drape(raster, feature):
     """

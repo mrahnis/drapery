@@ -4,7 +4,7 @@ import click
 
 import fiona
 import rasterio
-from shapely.geometry import shape, mapping, Point, LineString
+from shapely.geometry import mapping
 
 import drapery
 
