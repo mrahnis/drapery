@@ -16,7 +16,7 @@ def drape(raster, feature):
     Returns
     -------
     result (Point or Linestring) - shapely Point or LineString of xyz coordinate triples
-    
+
     """
     coords = feature['geometry']['coordinates']
     geom_type = feature['geometry']['type']
@@ -26,7 +26,7 @@ def drape(raster, feature):
         result = Point(xyz[0])
     elif geom_type == 'LineString':
         xyz = sample(raster, coords)
-        points = [Point(x,y,z) for x,y,z in xyz]
+        points = [Point(x, y, z) for x, y, z in xyz]
         result = LineString(points)
     else:
         logging.error('drape not implemented for {}'.format(geom_type))
@@ -39,7 +39,7 @@ def sample(raster, coords):
 
     Parameters
     ----------
-    raster (rasterio) - 
+    raster (rasterio) - raster dataset to sample
     coords - array of tuples containing coordinate pairs (x,y) or triples (x,y,z)
 
     Returns
@@ -48,10 +48,10 @@ def sample(raster, coords):
     """
     if len(coords[0]) == 3:
         logging.info('Input is a 3D geometry, z coordinate will be updated.')
-        z = raster.sample([(x,y) for x,y,z in coords], indexes=raster.indexes)
+        z = raster.sample([(x, y) for x, y, z in coords], indexes=raster.indexes)
     else:
         z = raster.sample(coords, indexes=raster.indexes)
 
-    result = [(vert[0],vert[1],vert_z) for vert, vert_z in zip(coords, z)]
+    result = [(vert[0], vert[1], vert_z) for vert, vert_z in zip(coords, z)]
 
     return result

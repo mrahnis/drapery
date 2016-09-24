@@ -15,7 +15,7 @@ https://github.com/mapbox/rasterio/blob/master/rasterio/rio/sample.py
 @click.command()
 @click.argument('source_f', nargs=1, type=click.Path(exists=True), metavar='<source_file>')
 @click.argument('raster_f', nargs=1, type=click.Path(exists=True), metavar='<raster_file>')
-@click.option('-o', '--output', metavar='<output_file>', type=click.Path(), help="Output file path") 
+@click.option('-o', '--output', metavar='<output_file>', type=click.Path(), help="Output file path")
 @click.option('-v', '--verbose', is_flag=True, help='Enables verbose mode')
 def cli(source_f, raster_f, output, verbose):
     """
@@ -30,7 +30,7 @@ def cli(source_f, raster_f, output, verbose):
         source_driver = source.driver
         source_crs = source.crs
         sink_schema = source.schema.copy()
-    
+
         source_geom = source.schema['geometry']
         if source_geom == 'Point':
             sink_schema['geometry'] = '3D Point'
@@ -40,7 +40,7 @@ def cli(source_f, raster_f, output, verbose):
             pass
         else:
             logging.exception("Source geometry type {} not implemented".format(source_geom))
-    
+
         with rasterio.open(raster_f) as raster:
             if source_crs != raster.crs:
                 logging.error("Features and raster have different CRS.")
