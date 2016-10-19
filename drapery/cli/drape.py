@@ -12,7 +12,7 @@ import drapery
 See
 https://github.com/mapbox/rasterio/blob/master/rasterio/rio/sample.py
 """
-@click.command()
+@click.command(options_metavar='<options>')
 @click.argument('source_f', nargs=1, type=click.Path(exists=True), metavar='<source_file>')
 @click.argument('raster_f', nargs=1, type=click.Path(exists=True), metavar='<raster_file>')
 @click.option('-o', '--output', metavar='<output_file>', type=click.Path(), help="Output file path")
@@ -39,11 +39,11 @@ def cli(source_f, raster_f, output, verbose):
         elif source_geom == '3D Point' or source_geom == '3D LineString':
             pass
         else:
-            logging.exception("Source geometry type {} not implemented".format(source_geom))
+            click.BadParameter("Source geometry type {} not implemented".format(source_geom))
 
         with rasterio.open(raster_f) as raster:
             if source_crs != raster.crs:
-                logging.error("Features and raster have different CRS.")
+                click.BadParameter("Features and raster have different CRS.")
             with fiona.open(
                 output, 'w',
                 driver=source_driver,
