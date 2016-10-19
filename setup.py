@@ -23,9 +23,9 @@ setup(name='drapery',
     packages=find_packages(),
     include_package_data=True,
     install_requires=[
-        'shapely',
         'rasterio',
         'fiona',
+        'shapely',
         'click'
     ],
     entry_points='''
