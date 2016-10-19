@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# orangery documentation build configuration file, created by
+# drapery documentation build configuration file, created by
 # sphinx-quickstart on Wed Oct 30 15:11:37 2013.
 #
 # This file is execfile()d with the current directory set to its containing dir.
@@ -32,7 +32,7 @@ class Mock(object):
 		else:
 			return Mock()
 
-MOCK_MODULES = ['shapely','rasterio','fiona']
+MOCK_MODULES = ['shapely', 'shapely.geometry', 'rasterio','fiona']
 for mod_name in MOCK_MODULES:
 	sys.modules[mod_name] = Mock()
 
@@ -70,7 +70,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'orangery'
+project = u'drapery'
 copyright = u'2016, Michael Rahnis'
 
 # The version info for the project you're documenting, acts as replacement for

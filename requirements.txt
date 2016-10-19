@@ -1,2 +1,4 @@
+shapely
+fiona
 rasterio
-Click
+click
