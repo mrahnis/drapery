@@ -21,10 +21,10 @@ addons:
 cache:
   directories:
     - $HOME/.pip-cache/
-    
+
 # command to install dependencies
 install:
   - "pip wheel -r requirements.txt"
   - "pip install ." 
 # command to run tests
-# script: pytest
+script: pytest
