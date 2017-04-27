@@ -1,9 +1,15 @@
 language: python
+cache:
+  directories:
+    - $GDALINST
+    - ~/.cache/pip
+env:
+  global:
+    - PIP_WHEEL_DIR=$HOME/.cache/pip/wheels
+    - PIP_FIND_LINKS=file://$HOME/.cache/pip/wheels
+    - GDALINST=$HOME/gdalinstall
+    - GDALBUILD=$HOME/gdalbuild
 python:
-  - "3.2"
-  - "3.3"
-  - "3.4"
-  - "3.5"
   - "3.6"
 # command to install dependencies
 install: "pip install -r requirements.txt"
