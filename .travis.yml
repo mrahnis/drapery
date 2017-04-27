@@ -1,17 +1,31 @@
 language: python
+sudo: false
 cache:
   directories:
-    - $GDALINST
     - ~/.cache/pip
+
 env:
   global:
     - PIP_WHEEL_DIR=$HOME/.cache/pip/wheels
     - PIP_FIND_LINKS=file://$HOME/.cache/pip/wheels
-    - GDALINST=$HOME/gdalinstall
-    - GDALBUILD=$HOME/gdalbuild
+
 python:
   - "3.6"
+
+addons:
+  apt:
+    packages:
+    - gdal-bin
+    - libgdal-dev
+
+cache:
+  directories:
+    - $HOME/.pip-cache/
+    - $HOME/wheelhouse
 # command to install dependencies
-install: "pip install -r requirements.txt"
+
+install:
+  - "pip wheel -r requirements.txt"
+  - "pip install -e ." 
 # command to run tests
 # script: pytest
