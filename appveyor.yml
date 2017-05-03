@@ -18,9 +18,10 @@ install:
   - conda install conda-build yaml
   - conda info -a
   - conda config --add channels conda-forge
-  - "conda create -q -n test-environment python=%PYTHON_VERSION% fiona rasterio shapely click pytest yaml"
+  - "conda create -q -n test-environment python=%PYTHON_VERSION% fiona rasterio shapely click pytest"
   - activate test-environment
   - conda build .
+  - conda install drapery --use-local
 
 test_script:
   - pytest
