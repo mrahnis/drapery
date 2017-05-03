@@ -1,0 +1,36 @@
+package:
+  name: drapery
+  version: 0.0.0
+
+source:
+  git_url: ../
+  git_rev: head
+
+build:
+  noarch: python
+  number: 1
+  script: python setup.py install --single-version-externally-managed --record=record.txt
+  entry_points:
+    - drape = drapery.cli.drape:cli
+    
+requirements:
+  build:
+    - python
+    - setuptools
+  run:
+    - python
+    - click
+    - shapely
+    - rasterio
+    - fiona
+
+test:
+  imports:
+    - drapery
+  commands:
+    - drape --help
+
+about:
+  home: https://github.com/mrahnis/drapery
+  license: BSD
+  license_file: LICENSE.txt
