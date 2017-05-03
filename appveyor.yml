@@ -41,5 +41,5 @@ test_script:
 #    appveyor_repo_tag: true        # deploy on tag push only
 
 artifacts:
-  - path: "%MINICONDA%\conda-bld\noarch\*.tar.bz2"
+  - path: $(MINICONDA)\conda-bld\noarch\*.tar.bz2
   # - path: dist\*.tar.bz2
