@@ -21,11 +21,11 @@ install:
   - "conda create -q -n test-environment python=%PYTHON_VERSION% fiona rasterio shapely click pytest"
   - activate test-environment
   - conda build .
-  - conda install drapery --use-local
+  # - conda install drapery --use-local
 
 test_script:
   - pytest
-  - python ci\appveyor\move-conda-artifacts.py dist
+  # - python ci\appveyor\move-conda-artifacts.py dist
 
 #deploy:
 #  release: drapery-v$(appveyor_build_version)
@@ -41,4 +41,5 @@ test_script:
 #    appveyor_repo_tag: true        # deploy on tag push only
 
 artifacts:
-  - path: dist\*.tar.bz2
+  - path: %MINICONDA%\conda-bld\noarch\*.tar.bz2
+  # - path: dist\*.tar.bz2
