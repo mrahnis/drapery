@@ -15,7 +15,7 @@ install:
   - "set PATH=%MINICONDA%;%MINICONDA%\\Scripts;%PATH%"
   - conda config --set always_yes yes --set changeps1 no
   - conda update -q conda
-  - conda install conda-build
+  - conda install conda-build yaml
   - conda info -a
   - conda config --add channels conda-forge
   - "conda create -q -n test-environment python=%PYTHON_VERSION% fiona rasterio shapely click pytest"
@@ -43,4 +43,4 @@ after_test:
 #    appveyor_repo_tag: true        # deploy on tag push only
 
 artifacts:
-  - path: dist\*.tar.bz
+  - path: dist\*.tar.bz2
