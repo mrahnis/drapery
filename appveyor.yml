@@ -27,7 +27,7 @@ test_script:
   - pytest
 
 after_test:
-  - python ci\move-conda-artifacts.py dist
+  - python ci\appveyor\move-conda-artifacts.py dist
 
 #deploy:
 #  release: drapery-v$(appveyor_build_version)
