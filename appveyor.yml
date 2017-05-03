@@ -27,6 +27,7 @@ test_script:
   - pytest
 
 after_test:
+  - deactivate
   - python ci\appveyor\move-conda-artifacts.py dist
 
 #deploy:
