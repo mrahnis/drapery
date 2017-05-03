@@ -21,7 +21,7 @@ install:
   - "conda create -q -n test-environment python=%PYTHON_VERSION% fiona rasterio shapely click pytest"
   - activate test-environment
   - conda build .
-  # - conda install drapery --use-local
+  - conda install drapery --use-local
 
 test_script:
   - pytest
