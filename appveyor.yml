@@ -3,6 +3,8 @@ build: false
 platform: x64
 
 environment:
+  global:
+    ANACONDA_TOKEN: cKeC+a3Su46s2RrxdYhXLQ7G9APT03vq+hLxK0joIKZtWcjAx9GdFVoqWEtOg5dx
   matrix:
     - PYTHON_VERSION: 3.6
       PYTHON_ARCH: 64
@@ -31,6 +33,9 @@ test_script:
   - cmd: mkdir conda-packages
   - cmd: 'copy /Y C:\Miniconda36-x64\conda-bld\win-64\*.tar.bz2 conda-packages || cmd /c "exit /b 0"'
   - cmd: 'copy /Y C:\Miniconda36-x64\conda-bld\noarch\*.tar.bz2 conda-packages || cmd /c "exit /b 0"'
+
+deploy_script:
+  - powershell .ci/appveyor/deploy_to_anaconda.ps1
 
 #deploy:
 #  release: drapery-v$(appveyor_build_version)
