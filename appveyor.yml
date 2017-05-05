@@ -29,8 +29,8 @@ artifacts:
 test_script:
   - pytest
   - cmd: mkdir conda-packages
-  - cmd: 'copy /Y C:\Miniconda-x64\conda-bld\win-64\*.tar.bz2 conda-packages || cmd /c "exit /b 0"'
-  - cmd: 'copy /Y C:\Miniconda-x64\conda-bld\noarch\*.tar.bz2 conda-packages || cmd /c "exit /b 0"'
+  - cmd: 'copy /Y C:\Miniconda36-x64\conda-bld\win-64\*.tar.bz2 conda-packages || cmd /c "exit /b 0"'
+  - cmd: 'copy /Y C:\Miniconda36-x64\conda-bld\noarch\*.tar.bz2 conda-packages || cmd /c "exit /b 0"'
 
 #deploy:
 #  release: drapery-v$(appveyor_build_version)
