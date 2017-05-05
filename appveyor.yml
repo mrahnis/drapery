@@ -23,9 +23,14 @@ install:
   - conda build .
   - conda install drapery --use-local
 
+artifacts:
+  - path: 'conda-packages\*.tar.bz2'
+
 test_script:
   - pytest
-  # - python ci\appveyor\move-conda-artifacts.py dist
+  - cmd: mkdir conda-packages
+  - cmd: 'copy /Y C:\Miniconda-x64\conda-bld\win-64\*.tar.bz2 conda-packages || cmd /c "exit /b 0"'
+  - cmd: 'copy /Y C:\Miniconda-x64\conda-bld\noarch\*.tar.bz2 conda-packages || cmd /c "exit /b 0"'
 
 #deploy:
 #  release: drapery-v$(appveyor_build_version)
@@ -39,7 +44,3 @@ test_script:
 #  on:
 #    branch: master                 # release from master branch only
 #    appveyor_repo_tag: true        # deploy on tag push only
-
-artifacts:
-  - path: $(MINICONDA)\conda-bld\noarch\*.tar.bz2
-  # - path: dist\*.tar.bz2
