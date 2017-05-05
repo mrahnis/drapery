@@ -2,29 +2,27 @@ language: python
 sudo: false
 cache:
   directories:
-    - ~/.cache/pip
-
+  - "$HOME/.pip-cache/"
 env:
   global:
-    - PIP_WHEEL_DIR=$HOME/.cache/pip/wheels
-    - PIP_FIND_LINKS=file://$HOME/.cache/pip/wheels
-
+  - PIP_WHEEL_DIR=$HOME/.cache/pip/wheels
+  - PIP_FIND_LINKS=file://$HOME/.cache/pip/wheels
 python:
-  - "3.6"
-
+- '3.6'
 addons:
   apt:
     packages:
     - gdal-bin
     - libgdal-dev
-
-cache:
-  directories:
-    - $HOME/.pip-cache/
-
-# command to install dependencies
 install:
-  - "pip wheel -r requirements.txt"
-  - "pip install ." 
-# command to run tests
+- pip wheel -r requirements.txt
+- pip install .
 script: pytest
+deploy:
+  provider: pypi
+  user: mrahnis
+  password:
+    secure: CN/tsewWWcFP2d/DDfcSbRLn2JRqCut9/NRLweS67l8qsnu8uDogCdneN/M0BfhAEgRFNQvIR002eBQGfMgpJsMQwJjS5LqqLXhay2xoYToczwZDdcwXnSlsINVUz0D0qZjHYjoSlcMtrF9/XaY5D/IOMehUQA8RlJryTmvx67d1Sl/2A9weAF3wQpmp0kqbNwRobwqsOsJZz8Bx0fvdoomk9WZMLO8DUjNWSpuCJDzfN++vFJSjQboZAzScgox4JzjolulImYUq1s6xnwPjnQoUHJumBMNMQPVmEBPbk8FgYqcHUfZVDEI42VpMRdgaZQQQ7ipNTXQgkSZgGEKOdaJR9IbAUgrqFYJSfImDxZlJaeNZq8RFU2WOp/M0nMFoRi5cQfe6YXjKKCYYNqTBg8ECMldx8lEVySldMGBksAW/+Pi7zuaVzyO3+S5VsDge40pgA8xB5jJ6zUH0ZWclvG+F6yHc9dn7CsvToLlMswnoQWEgjwKpd/b388LF6CmTXS7wZtAWejyBQWQV+q4sEaanDsbgt682COAUn+MsZzWlwbyDuiQDL9HeQQ+o5EyqoeVedvow6oLonOzIFpPZF2bbbJOnUqOA1SBp4/t9lOutjrwbW5m5PzXmjssvZI5blXcHtdImUVECIscQyz2Dbjv6CiPBULTB+0N26wUC1IU=
+  on:
+    tags: true
+  distributions: sdist bdist_wheel
