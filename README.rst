@@ -4,12 +4,19 @@ Drapery
 
 Drapery is a Python library and CLI tool to convert 2D geometries to 3D given an elevation source.
 
+.. image:: https://travis-ci.org/mrahnis/drapery.svg?branch=master
+    :target: https://travis-ci.org/mrahnis/drapery
+
+.. image:: https://ci.appveyor.com/api/projects/status/github/mrahnis/drapery?svg=true
+	:target: https://ci.appveyor.com/api/projects/status/github/mrahnis/drapery?svg=true
+
+
 Dependencies
 ============
 
 drapery 0.0.0 depends on:
 
-* `Python 2.7 or 3.x`_
+* `Python 3.x`_
 * Click_
 * Shapely_
 * rasterio_
@@ -41,7 +48,7 @@ Documentation
 
 Latest `html`_
 
-.. _`Python 2.7 or 3.x`: http://www.python.org
+.. _`Python 3.x`: http://www.python.org
 .. _Click: http://click.pocoo.org
 .. _Shapely: https://github.com/Toblerity/Shapely
 .. _rasterio: https://github.com/mapbox/rasterio
