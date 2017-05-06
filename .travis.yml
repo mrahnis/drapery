@@ -27,3 +27,5 @@ deploy:
     tags: true
     distributions: sdist bdist_wheel
     repo: mrahnis/drapery
+  skip_cleanup: true
+  
