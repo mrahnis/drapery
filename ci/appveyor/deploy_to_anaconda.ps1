@@ -12,8 +12,6 @@ Invoke-Expression "conda config --set anaconda_upload no"
 $file_to_upload = (conda build --output .) | Out-String
 
 write-output "Uploading $file_to_upload..."
-Invoke-Expression "anaconda -t $env:ANACONDA_TOKEN upload --force --user mrahnis --channel $channel $file_to_upload"
+Invoke-Expression "anaconda -t $env:ANACONDA_TOKEN upload -q --force --user mrahnis --channel $channel $file_to_upload"
 
-# Invoke-Expression "anaconda -t $env:ANACONDA_TOKEN upload --force --user landlab --channel $channel C:\\Miniconda\conda-bld\**\landlab*bz2"
-
-write-output "OK"
+write-output "Upload sucess"
