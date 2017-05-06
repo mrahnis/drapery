@@ -17,7 +17,7 @@ Drapery is a Python library and CLI tool to convert 2D geometries to 3D given an
 Dependencies
 ============
 
-drapery 0.0.0 depends on:
+drapery 0.0.1 depends on:
 
 * `Python 3.x`_
 * Click_
