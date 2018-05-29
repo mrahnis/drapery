@@ -45,7 +45,7 @@ def cli(source_f, raster_f, output, verbose):
         with rasterio.open(raster_f) as raster:
             if source_crs != raster.crs:
                 click.BadParameter("Features and raster have different CRS.")
-            if len(raster.bands) > 1:
+            if raster.count > 1:
                 warnings.warn("Found {0} bands in {1}, expected a single band raster".format(raster.bands, raster_f))
             supported = ['int16', 'int32', 'float32', 'float64']
             if raster.dtypes[0] not in supported:
