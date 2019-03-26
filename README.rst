@@ -7,8 +7,8 @@ Drapery is a Python library and CLI tool to convert 2D geometries to 3D given an
 .. image:: https://travis-ci.org/mrahnis/drapery.svg?branch=master
     :target: https://travis-ci.org/mrahnis/drapery
 
-.. image:: https://ci.appveyor.com/api/projects/status/github/mrahnis/drapery?svg=true
-	:target: https://ci.appveyor.com/api/projects/status/github/mrahnis/drapery?svg=true
+.. image:: https://ci.appveyor.com/api/projects/status/eyh3s753a0r2vexl?svg=true
+	:target: https://ci.appveyor.com/project/mrahnis/drapery
 
 .. image:: https://readthedocs.org/projects/drapery/badge/?version=latest
 	:target: http://drapery.readthedocs.io/en/latest/?badge=latest
@@ -34,8 +34,7 @@ If you are starting from scratch the first thing to do is install the Anaconda P
 .. code-block:: console
 
 	$conda config --append channels conda-forge
-	$conda config --append channels mrahnis
-	$conda install drapery
+	$conda install drapery -c mrahnis
 
 To install from the source distribution execute the setup script in the drapery directory:
 
