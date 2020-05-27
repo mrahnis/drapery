@@ -8,7 +8,7 @@ env:
   - PIP_WHEEL_DIR=$HOME/.cache/pip/wheels
   - PIP_FIND_LINKS=file://$HOME/.cache/pip/wheels
 python:
-- '3.6'
+- '3.7'
 addons:
   apt:
     packages:
@@ -20,9 +20,9 @@ install:
 script: pytest
 deploy:
   provider: pypi
-  user: mrahnis
+  user: "__token__"
   password:
-    secure: aYI/XrfuzOHC+Di44PmNoGBPrOjovSXFvr/5PwhzBJBI2RfgT2XidL4mWhZ6qK8ppEqstlU1gE+bB8eVn6CArR1KrLF6zGCtPz7Y2YRjZRfx0/AR6cmpf7DKPICsyADp0Z4w8SzS+4axHdosIqaqCK4TrZI65DinbvDFwq+f0G2TCB+1CnmZFAgKUlTbn9zWTKH23JlcxsXe2M4KP46lWcQkDm8yqI4iF9STvNvPm5xrK0vaBBJfq8f638z/Ao7rSH0+ZJbTYZ/Tdqz8bXekIi6eqhS89YkCIMxMkRA/yXdAylbhjcvzNP1GoT2WYpEHeCNIqW4YsegdvcTc1r9S2PFQUQ2UpO2rx6B+7+dPuyNieCG30XySK5q9XLQkkYXqGoYT33I8NPoi4tqQ0Nrn9jWNOdXZKfstHokKiEus5bV47JOoUYFNAIGAIot2LWZlzp/WmJwROa6x9M8V1vnawRT4Q27zVyzCDcU0RpbUcBgVuX53z3v0U+xKIrXkA4sfwqNxdYURX+Vpsu0drx3wNKykytjRHoanetbzi2RMBIXvPjcQ3hkE1yu5PeuCK71W5rSkQ/RTOqNT9rWNaCfbUraowEEpekOY+onSo2ygYrJH4GSApb4QR3BFE1KCAA42sdd43UMAnDrYeooiIA/h+VSidzLRpJBGLt5M+TkBebc=
+    secure: Wt1mBWs1VUwWoUc81m9g2a+qzyBVxnB+CCteOyUoaL22pqo5Y/KpavjiQA2GHdExezOKkQ1+pyyQptj9Md795Te4YcZPfnkC2I+rJL22X3RuAfubAUUA0UghA4YqZtPzchfqNa+JvO9BBrmJFdFNyAq56G2L49D/o1Qi6e0jmQduG7KALCZP4WviVGOxygH1HIUvrYUh4CfVi3Epy464E8N094TwMAa3x7GzQDWMpHBbP0RLe2DQml5B40PCzxxRfPetNLBa8mHupn6uqWBOzliTxi/deTeLhmqOZVGzVXMe84xvj+x3iG2tXhu+7qmsovGHJgyCXEgJ4TKWug5IM5foThot2eJMPzcy7bhvJkhIGbakkBqc0SJ71WWx4oLW4sQjrpxwzJweV5yAhIAjdE5gtNjISNjRmWnh4AW1NCByT960ueJj4crKUB0/G3PNkXZd8xu3OTW3JplydN7j/YUy23v/jem4ds9L+ACSwnY/XXyF2XTixUu47Ai+vzWloLi/4XazWClFDxV/sppY4S7M55F1WaVJQXwJc8CgNOn/D1WPdFLxnYKifsvtWHyJ9SYFSEerLeJV3dUWOTbOJa6eB2EJ87r1dZ0UFVta0FnVXNj2x1LAcpFGFxSf6RwDOCuTdJxx4IFPFF99rgI52Z+mmVCKfrdI/vu53hYc2aw=
   on:
     tags: true
     distributions: sdist bdist_wheel
