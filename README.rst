@@ -4,7 +4,7 @@ Drapery
 
 Drapery is a Python library and CLI tool to convert 2D geometries to 3D given an elevation source.
 
-.. image:: https://travis-ci.org/mrahnis/drapery.svg?branch=master
+.. image:: https://travis-ci.org/mrahnis/drapery.svg?branch=main
     :target: https://travis-ci.org/mrahnis/drapery
 
 .. image:: https://ci.appveyor.com/api/projects/status/eyh3s753a0r2vexl?svg=true
