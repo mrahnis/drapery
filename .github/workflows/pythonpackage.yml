@@ -11,8 +11,8 @@ on:
 
 jobs:
   build:
-    name: Python package
-    runs-on: ubuntu-latest
+    name: Python package (${{ matrix.os }}, python ${{ matrix.python-version }}, numpy ${{ matrix.numpy-version }})
+    runs-on: ${{ matrix.os }}
     strategy:
       matrix:
         os: ["ubuntu-latest", "windows-latest"]
