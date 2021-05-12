@@ -10,7 +10,7 @@ on:
 
 jobs:
   build:
-    name: Conda package (${{ matrix.os }}, python ${{ matrix.python-version }}, numpy ${{matrix.numpy-version}})
+    name: Conda package (${{ matrix.os }} py=${{ matrix.python-version }} np=${{matrix.numpy-version}})
     runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false

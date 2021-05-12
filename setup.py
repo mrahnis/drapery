@@ -1,23 +1,16 @@
 from os import path
 from setuptools import setup, find_packages
+import versioneer
 
 
-for line in open('drapery/__init__.py', 'r'):
-    if line.find("__version__") >= 0:
-        version = line.split("=")[1].strip()
-        version = version.strip('"')
-        version = version.strip("'")
-        continue
-
-with open('VERSION.txt', 'w') as fp:
-    fp.write(version)
-
-current_directory = path.abspath(path.dirname(__file__))
-with open(path.join(current_directory, 'README.rst'), 'r', encoding='utf-8') as f:
+with open('README.rst', 'r', encoding='utf-8') as f:
     long_description = f.read()
+with open("requirements.txt", "r") as fh:
+    requirements = [line.strip() for line in fh]
 
 setup(name='drapery',
-      version=version,
+      version=versioneer.get_version(),
+      cmdclass=versioneer.get_cmdclass(),
       author='Michael Rahnis',
       author_email='mike@topomatrix.com',
       description='Python library and CLI tool to convert 2D geometries to 3D given an elevation source',
@@ -27,12 +20,7 @@ setup(name='drapery',
       license='BSD',
       packages=find_packages(),
       include_package_data=True,
-      install_requires=[
-          'rasterio',
-          'fiona',
-          'shapely',
-          'click'
-      ],
+      install_requires=requirements,
       entry_points='''
           [console_scripts]
           drape=drapery.cli.drape:cli
