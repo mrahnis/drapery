@@ -1,7 +1,11 @@
 include README.rst
 include LICENSE.txt
 include requirements.txt
+include setup.py
+
 graft drapery
+
+global-exclude .git*
 recursive-exclude * *.py[co]
 include versioneer.py
 include drapery/_version.py
