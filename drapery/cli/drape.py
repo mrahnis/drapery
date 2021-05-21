@@ -49,7 +49,7 @@ def cli(source_f, raster_f, output, verbose):
                 warnings.warn("Found {0} bands in {1}, expected a single band raster".format(raster.bands, raster_f))
             supported = ['int16', 'int32', 'float32', 'float64']
             if raster.dtypes[0] not in supported:
-                warnings.warn("Found {0} type in {1}, expected one of {2}".format(raster.dtypes[0]), raster_f, supported)
+                warnings.warn("Found {0} type in {1}, expected one of {2}".format(raster.dtypes[0], raster_f, supported))
             with fiona.open(
                 output, 'w',
                 driver=source_driver,

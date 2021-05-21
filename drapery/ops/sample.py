@@ -1,9 +1,19 @@
 # using dask for out of core processing on large rasters
 # https://gist.github.com/lpinner/bd57b54a5c6903e4a6a2
+from __future__ import annotations
+
+from typing import Union
 import logging
+
+import numpy as np
+import rasterio
 from shapely.geometry import Point, LineString
 
-def drape(raster, feature):
+
+def drape(
+    raster: rasterio.io.DatasetReader,
+    feature: Union[Point, LineString]
+) -> Union[Point, LineString]:
     """Convert a 2D feature to a 3D feature by sampling a raster
 
     Parameters:
@@ -29,7 +39,11 @@ def drape(raster, feature):
 
     return result
 
-def sample(raster, coords):
+
+def sample(
+    raster: rasterio.io.DatasetReader,
+    coords: list[tuple[float, ...]]
+) -> list[tuple[float, float, float]]:
     """Sample a raster at given coordinates
 
     Given a list of coordinates, return a list of x,y,z triples with z coordinates sampled from an input raster
