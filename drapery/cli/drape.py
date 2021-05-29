@@ -20,11 +20,11 @@ https://github.com/mapbox/rasterio/blob/master/rasterio/rio/sample.py
 @click.option('-v', '--verbose', is_flag=True, help='Enables verbose mode')
 def cli(source_f, raster_f, output, verbose):
     """
-    Converts 2D geometries to 3D using GEOS sample through fiona.
+    Convert 2D geometries to 3D.
 
     \b
     Example:
-    drape point.shp elevation.tif -o point_z.shp
+        drape point.shp elevation.tif -o point_z.shp
 
     """
     with fiona.open(source_f, 'r') as source:

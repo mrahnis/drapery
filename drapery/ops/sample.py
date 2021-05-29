@@ -17,11 +17,11 @@ def drape(
     """Convert a 2D feature to a 3D feature by sampling a raster
 
     Parameters:
-        raster (rasterio): raster to provide the z coordinate
-        feature (dict): fiona feature record to convert
+        raster: raster to provide the z coordinate
+        feature: fiona feature record to convert
 
     Returns:
-        result (Point or Linestring): shapely Point or LineString of xyz coordinate triples
+        shapely Point or LineString
 
     """
     coords = feature['geometry']['coordinates']
@@ -49,11 +49,11 @@ def sample(
     Given a list of coordinates, return a list of x,y,z triples with z coordinates sampled from an input raster
 
     Parameters:
-        raster (rasterio): raster dataset to sample
+        raster: raster dataset to sample
         coords: array of tuples containing coordinate pairs (x,y) or triples (x,y,z)
 
     Returns:
-        result: array of tuples containing coordinate triples (x,y,z)
+        array of tuples containing coordinate triples (x,y,z)
         
     """
     if len(coords[0]) == 3:
