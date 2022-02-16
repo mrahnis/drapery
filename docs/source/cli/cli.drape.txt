@@ -1,0 +1,11 @@
+Usage: drape <options> <source_file> <raster_file>
+
+  Convert 2D geometries to 3D.
+
+  Example:
+      drape point.shp elevation.tif -o point_z.shp
+
+Options:
+  -o, --output <output_file>  Output file path
+  -v, --verbose               Enables verbose mode
+  --help                      Show this message and exit.

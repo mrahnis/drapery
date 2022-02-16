@@ -10,7 +10,7 @@ Drapery Documentation Contents
 	:maxdepth: 2
 
 	Project/Getting Started <project>
-	User Manual <manual>
+	Command Line User Guide <cli>
 	API Documentation <api/modules>
 
 Indices and tables
