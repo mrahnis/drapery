@@ -2,15 +2,18 @@
     Generate CLI help files from Click online help.
     These will get picked up by Sphinx.
  #>
-# can i get the command list elsewhere?
-$commands = @(
-    "drape"
-)
+
+
+$main = "drape"
+$commands = @()
 
 $dst = "$($PSScriptRoot)\..\docs\source\cli"
+
+& $main --help | Out-File $(Join-Path $dst cli.${main}.txt)
+
 ForEach ($command in $commands)
 {
     Write-Host "Writing help for $command"
     $path = Join-Path $dst cli.${command}.txt
-    & ${command} --help | Out-File $path
+    & $main ${command} --help | Out-File $path
 }
