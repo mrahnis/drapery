@@ -1,0 +1,63 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "drapery"
+authors = [
+  {name = "Michael Rahnis", email = "mike@topomatrix.com"},
+]
+description = "Python library and CLI tool to convert 2D geometries to 3D given an elevation source"
+dynamic = ["version"]
+readme = "README.rst"
+license = {file = "LICENSE.txt"}
+keywords = ["survey, conversion"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "License :: OSI Approved :: BSD License",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3"
+]
+
+requires-python = ">=3.8"
+
+dependencies = [
+  "click",
+  "shapely",
+  "fiona",
+  "rasterio",
+]
+
+[project.optional-dependencies]
+test = [
+    "pytest",
+    "pytest-cov",
+    "mypy",
+    "ruff",
+]
+dev = [
+    "numpydoc",
+    "twine",
+]
+
+[project.urls]
+Homepage = "https://topomatrix.com"
+Documentation = "https://readthedocs.org"
+Repository = "https://github.com/mrahnis/drapery/drapery.git"
+Changelog = "https://github.com/mrahnis/drapery/blob/main/CHANGELOG.md"
+
+[project.scripts]
+drape = "drapery.cli.drape:cli"
+
+
+[tool.setuptools.dynamic]
+version = {attr = "drapery._version.__version__"}
+
+[tool.mypy]
+python_version = "3.8"
+files = ["drapery"]
+show_error_codes = true
+pretty = true
+strict = true
+local_partial_types = true
+warn_unreachable = true
