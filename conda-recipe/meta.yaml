@@ -1,5 +1,5 @@
-{% set data = load_setup_py_data() %}
-{% set version = data.get('version')  %}
+{% set _version = load_file_data('drapery/_version.py') %}
+{% set version = _version.get('__version__') %}
 
 package:
   name: drapery
