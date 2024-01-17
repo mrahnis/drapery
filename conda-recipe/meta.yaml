@@ -1,4 +1,4 @@
-{% set _version = load_file_data('drapery/_version.py') %}
+{% set _version = load_file_data('./drapery/_version.py') %}
 {% set version = _version.get('__version__') %}
 
 package:
