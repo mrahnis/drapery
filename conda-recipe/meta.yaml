@@ -1,5 +1,5 @@
-{% set _version = load_file_data('./drapery/_version.py') %}
-{% set version = _version.get('__version__') %}
+{% set pyproject = load_file_data('pyproject.toml') %}
+{% set version = pyproject.get('version') %}
 
 package:
   name: drapery
