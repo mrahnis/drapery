@@ -12,7 +12,7 @@ source:
 build:
   noarch: python
   number: 0
-  script: python -m pip install --single-version-externally-managed --record=record.txt
+  script: {{ PYTHON }} -m pip install . -vv
   entry_points:
     - drape = drapery.cli.drape:cli
     
