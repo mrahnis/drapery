@@ -39,4 +39,5 @@ about:
   license: BSD
   license_file: LICENSE.txt
 
+# https://github.com/conda/conda-build/issues/4807
 # whatever_you_do_don't_load_setup_py_dataxxx!!!
