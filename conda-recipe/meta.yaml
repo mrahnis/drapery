@@ -21,11 +21,9 @@ requirements:
     - python
     - setuptools
   run:
-    - python
-    - click
-    - shapely
-    - rasterio
-    - fiona
+    {% for dependency in pyproject.get('dependencies') %}
+    - {{ dependency.lower() }}
+    {% endfor %}
 
 test:
   imports:
