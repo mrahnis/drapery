@@ -21,7 +21,7 @@ requirements:
     - python
     - setuptools
   run:
-    {% for dependency in pyproject.get('dependencies') %}
+    {% for dependency in pyproject['dependencies'] %}
     - {{ dependency.lower() }}
     {% endfor %}
 
