@@ -63,3 +63,6 @@ target/
 *.sublime-project
 *.sublime-workspace
 VERSION.txt
+
+# Pixi environments
+.pixi/
