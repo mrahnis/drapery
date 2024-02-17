@@ -2,6 +2,7 @@
 # https://gist.github.com/lpinner/bd57b54a5c6903e4a6a2
 from __future__ import annotations
 
+import sys
 from typing import Union
 import logging
 
@@ -36,6 +37,7 @@ def drape(
         result = LineString(points)
     else:
         logging.error('drape not implemented for {}'.format(geom_type))
+        sys.exit()
 
     return result
 
@@ -62,6 +64,6 @@ def sample(
     else:
         z = raster.sample(coords, indexes=raster.indexes)
 
-    result = [(vert[0], vert[1], vert_z) for vert, vert_z in zip(coords, z)]
+    result = [(vert[0], vert[1], vert_z[0]) for vert, vert_z in zip(coords, z)]
 
     return result
